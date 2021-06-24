@@ -9,7 +9,7 @@ const app = express();
 app.use(express.json())
 
 app.use('/', (request, response) => (
-  response.json({ok: true})
+  response.json({ ok: true })
 ))
 
 const port = 3333;
