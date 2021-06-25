@@ -6,8 +6,6 @@ class CreateUserService {
     try {
       const userRepository = getRepository(User);
 
-      console.log(name)
-
       const existUser = await userRepository.findOne({ where: { name }});
 
       if (existUser) {
