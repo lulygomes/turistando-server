@@ -1,11 +1,13 @@
 import 'reflect-metadata';
-import express, { response } from 'express';
+import express from 'express';
+import cors from 'cors';
 import createConnection from './database';
 
 createConnection();
 
 const app = express();
 
+app.use(cors());
 app.use(express.json())
 
 app.use('/', (request, response) => (
