@@ -2,6 +2,7 @@ import { Router } from 'express';
 
 import CreatePlaceService from '../services/createPlaceService';
 import ListPlaceService from '../services/listPlaceService';
+import SearchPlaceService from '../services/searchPlaceService'
 
 const placeRoutes = Router();
 
@@ -28,6 +29,15 @@ placeRoutes.get('/', async (request, response) => {
   } catch (err) {
     console.log(err)
   }
+})
+
+placeRoutes.get('/find', async (request, response) => {
+  const { find } = request.query;
+  const searchService = new SearchPlaceService();
+  
+  const places = await searchService.execute(find as string);
+
+  return response.json(places);
 })
 
 export default placeRoutes;

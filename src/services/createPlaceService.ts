@@ -32,9 +32,10 @@ class CreatePlaceService {
       })
 
       await placeRepository.save(place);
-
+      
       return place;
     } catch (err) {
+      console.log(err)
       return err;
     }
   }

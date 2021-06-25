@@ -14,8 +14,7 @@ class CreateUserService {
 
       const user = userRepository.create({name});
       await userRepository.save(user)
-
-      console.log(user)
+      
       return user;
     } catch (err) {
       console.log(err)
