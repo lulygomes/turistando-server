@@ -4,7 +4,7 @@ import CreateUserService from '../services/createUserServices';
 
 const userRoutes = Router();
 
-userRoutes.post('/user', async (request, response) => {
+userRoutes.post('/', async (request, response) => {
   try {
     const createUser = new CreateUserService();
     const { name } = request.body;
@@ -17,6 +17,7 @@ userRoutes.post('/user', async (request, response) => {
   } catch (err) {
     console.log(err)
   }
+
 })
 
 export default userRoutes;
