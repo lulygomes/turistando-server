@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors';
 import createConnection from './database';
 
+import routes from './routes'
+
 createConnection();
 
 const app = express();
@@ -10,9 +12,7 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 
-app.use('/', (request, response) => (
-  response.json({ ok: true })
-))
+app.use(routes)
 
 const port = 3333;
 

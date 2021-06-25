@@ -6,6 +6,8 @@ class CreateUserService {
     try {
       const userRepository = getRepository(User);
 
+      console.log(name)
+
       const existUser = await userRepository.findOne({ where: { name }});
 
       if (existUser) {
@@ -15,8 +17,8 @@ class CreateUserService {
       const user = userRepository.create({name});
       await userRepository.save(user)
 
-
-      return User;
+      console.log(user)
+      return user;
     } catch (err) {
       console.log(err)
       return err
